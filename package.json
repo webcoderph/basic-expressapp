@@ -1,0 +1,32 @@
+{
+  "name": "tasksModule",
+  "version": "1.0.0",
+  "description": "testing",
+  "main": "index.js",
+  "author": "Maynard Cabalitan",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.js --exec babel-node",
+    "build": "babel src -d dist --copy-files"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cluster": "^0.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
+    "nodemon": "^2.0.9"
+  }
+}
