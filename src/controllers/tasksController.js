@@ -10,6 +10,10 @@ class TasksController {
   static async create(req, res) {
     try {
       const { title, description } = req.body;
+      if (!title || !description) {
+        throw new Error("Title and Description is required!");
+      }
+
       const data = {
         title,
         description,
@@ -70,6 +74,7 @@ class TasksController {
   static async delete(req, res) {
     try {
       const { id } = req.params;
+      if (!id) throw new Error("Id is required!");
       const task = await Tasks.getById(id);
       if (!task) throw new Error("Task does not exist!");
       if (Array.isArray(task) && task.length === 0)

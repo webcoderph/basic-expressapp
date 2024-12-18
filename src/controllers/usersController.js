@@ -4,7 +4,10 @@ import AuthServices from "../services/AuthServices.js";
 class UsersController {
   static async register(req, res) {
     try {
-      const { email } = req.body;
+      const { email, password } = req.body;
+      if (!email || !password)
+        throw new Error("Email and Password is required!");
+
       const existingUser = await Users.getUserByEmail(email);
 
       if (
@@ -25,6 +28,10 @@ class UsersController {
 
   static async login(req, res) {
     try {
+      const { email, password } = req.body;
+      if (!email || !password)
+        throw new Error("Email and Password is required!");
+
       const user = await AuthServices.login(req.body.email, req.body.password);
 
       res.status(200).json({ status: "success", data: user });
